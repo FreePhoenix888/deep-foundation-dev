@@ -171,165 +171,249 @@ const installPackage = async () => {
             type_id: joinTypeLinkId,
             to_id: await deep.id('deep', 'admin'),
           },
+          {
+            type_id: containTypeLinkId,
+            string: {
+              data: {
+                value: "SumProvider"
+              }
+            },
+            to: {
+              data: {
+                type_id: typeTypeLinkId,
+                from_id: anyTypeLinkId,
+                to_id: anyTypeLinkId
+              }
+            }
+          },
+          {
+            type_id: containTypeLinkId,
+            string: {
+              data: {
+                value: "TinkoffProvider"
+              }
+            },
+            to: {
+              data: {
+                type_id: typeTypeLinkId,
+                from_id: anyTypeLinkId,
+                to_id: anyTypeLinkId
+              }
+            }
+          },
+          {
+            type_id: containTypeLinkId,
+            string: {
+              data: {
+                value: "Payment"
+              }
+            },
+            to: {
+              data: {
+                type_id: typeTypeLinkId,
+                from_id: anyTypeLinkId,
+                to_id: anyTypeLinkId
+              }
+            }
+          },
+          {
+            type_id: containTypeLinkId,
+            string: {
+              data: {
+                value: "Object"
+              }
+            },
+            to: {
+              data: {
+                type_id: typeTypeLinkId,
+                from_id: anyTypeLinkId,
+                to_id: anyTypeLinkId
+              }
+            }
+          },
+          {
+            type_id: containTypeLinkId,
+            string: {
+              data: {
+                value: "Sum"
+              }
+            },
+            to: {
+              data: {
+                type_id: typeTypeLinkId,
+                from_id: anyTypeLinkId,
+                to_id: anyTypeLinkId
+              }
+            }
+          },
+          {
+            type_id: containTypeLinkId,
+            string: {
+              data: {
+                value: "Pay"
+              }
+            },
+            to: {
+              data: {
+                type_id: typeTypeLinkId,
+                from_id: anyTypeLinkId,
+                to_id: anyTypeLinkId
+              }
+            }
+          },
+          {
+            type_id: containTypeLinkId,
+            string: {
+              data: {
+                value: "Url"
+              }
+            },
+            to: {
+              data: {
+                type_id: typeTypeLinkId,
+                from_id: anyTypeLinkId,
+                to_id: anyTypeLinkId
+              }
+            }
+          },
+          {
+            type_id: containTypeLinkId,
+            string: {
+              data: {
+                value: "Payed"
+              }
+            },
+            to: {
+              data: {
+                type_id: typeTypeLinkId,
+                from_id: anyTypeLinkId,
+                to_id: anyTypeLinkId
+              }
+            }
+          },
+          {
+            type_id: containTypeLinkId,
+            string: {
+              data: {
+                value: "Error"
+              }
+            },
+            to: {
+              data: {
+                type_id: typeTypeLinkId,
+                from_id: anyTypeLinkId,
+                to_id: anyTypeLinkId
+              }
+            }
+          },
+          {
+            type_id: containTypeLinkId,
+            string: {
+              data: {
+                value: "StorageBusiness"
+              }
+            },
+            to: {
+              data: {
+                type_id: typeTypeLinkId,
+                from_id: anyTypeLinkId,
+                to_id: anyTypeLinkId
+              }
+            }
+          },
+          {
+            type_id: containTypeLinkId,
+            string: {
+              data: {
+                value: "Token"
+              }
+            },
+            to: {
+              data: {
+                type_id: typeTypeLinkId,
+                from_id: anyTypeLinkId,
+                to_id: anyTypeLinkId
+              }
+            }
+          },
+          {
+            type_id: containTypeLinkId,
+            string: {
+              data: {
+                value: "UsesToken"
+              }
+            },
+            to: {
+              data: {
+                type_id: typeTypeLinkId,
+                from_id: anyTypeLinkId,
+                to_id: anyTypeLinkId
+              }
+            }
+          },
+          {
+            type_id: containTypeLinkId,
+            string: {
+              data: {
+                value: "StorageClient"
+              }
+            },
+            to: {
+              data: {
+                type_id: typeTypeLinkId,
+                from_id: anyTypeLinkId,
+                to_id: anyTypeLinkId
+              }
+            }
+          },
+          {
+            type_id: containTypeLinkId,
+            string: {
+              data: {
+                value: "Title"
+              }
+            },
+            to: {
+              data: {
+                type_id: typeTypeLinkId,
+                from_id: anyTypeLinkId,
+                to_id: anyTypeLinkId
+              }
+            }
+          },
+          {
+            type_id: containTypeLinkId,
+            string: {
+              data: {
+                value: "StorageBusiness"
+              }
+            },
+            to: {
+              data: {
+                type_id: typeTypeLinkId,
+                from_id: anyTypeLinkId,
+                to_id: 
+              }
+            }
+          },
         ],
       },
     });
 
-    console.log({ packageId });
 
-    const {
-      data: [{ id: sumProviderTypeLinkId }],
-    } = await deep.insert({
-      type_id: typeTypeLinkId,
-      from_id: anyTypeLinkId,
-      to_id: anyTypeLinkId,
-      in: {
-        data: {
-          type_id: containTypeLinkId,
-          from_id: packageId,
-          string: { data: { value: 'SumProvider' } },
-        },
+    await deep.insert([
+      {
+        type_id: typeTypeLinkId,
       },
-    });
-
-    console.log({ sumProviderTypeLinkId });
-
-    const {
-      data: [{ id: tinkoffProviderTypeLinkId }],
-    } = await deep.insert({
-      type_id: typeTypeLinkId,
-      from_id: anyTypeLinkId,
-      to_id: anyTypeLinkId,
-      in: {
-        data: {
-          type_id: containTypeLinkId,
-          from_id: packageId,
-          string: { data: { value: 'TinkoffProvider' } },
-        },
+      {
+        type_id: typeTypeLinkId,
+        from_id: theFirstLinkInThisQuery
       },
-    });
-
-    console.log({ tinkoffProviderTypeLinkId });
-
-    const {
-      data: [{ id: paymentTypeLinkId }],
-    } = await deep.insert({
-      type_id: typeTypeLinkId,
-      from_id: anyTypeLinkId,
-      to_id: anyTypeLinkId,
-      in: {
-        data: {
-          type_id: containTypeLinkId,
-          from_id: packageId,
-          string: { data: { value: 'Payment' } },
-        },
+      {
+        type_id: typeTypeLinkId,
+        from_id: theFirstLinkInThisQuery
       },
-    });
-
-    console.log({ paymentTypeLinkId });
-
-    const {
-      data: [{ id: objectTypeLinkId }],
-    } = await deep.insert({
-      type_id: typeTypeLinkId,
-      from_id: paymentTypeLinkId,
-      to_id: anyTypeLinkId,
-      in: {
-        data: {
-          type_id: containTypeLinkId,
-          from_id: packageId,
-          string: { data: { value: 'Object' } },
-        },
-      },
-    });
-
-    console.log({ objectTypeLinkId });
-
-    const {
-      data: [{ id: sumTypeLinkId }],
-    } = await deep.insert({
-      type_id: typeTypeLinkId,
-      from_id: anyTypeLinkId,
-      to_id: anyTypeLinkId,
-      in: {
-        data: {
-          type_id: containTypeLinkId,
-          from_id: packageId, // before created package
-          string: { data: { value: 'Sum' } },
-        },
-      },
-    });
-
-    console.log({ sumTypeLinkId });
-
-    // TODO Rest restrictions
-    const {
-      data: [{ id: payTypeLinkId }],
-    } = await deep.insert({
-      type_id: typeTypeLinkId,
-      from_id: anyTypeLinkId,
-      to_id: anyTypeLinkId,
-      in: {
-        data: {
-          type_id: containTypeLinkId,
-          from_id: packageId, // before created package
-          string: { data: { value: 'Pay' } },
-        },
-      },
-    });
-
-    console.log({ payTypeLinkId });
-
-    const {
-      data: [{ id: urlTypeLinkId }],
-    } = await deep.insert({
-      type_id: typeTypeLinkId,
-      from_id: anyTypeLinkId,
-      to_id: anyTypeLinkId,
-      in: {
-        data: {
-          type_id: containTypeLinkId,
-          from_id: packageId, // before created package
-          string: { data: { value: 'Url' } },
-        },
-      },
-    });
-
-    console.log({ urlTypeLinkId });
-
-    const {
-      data: [{ id: payedTypeLinkId }],
-    } = await deep.insert({
-      type_id: typeTypeLinkId,
-      from_id: anyTypeLinkId,
-      to_id: anyTypeLinkId,
-      in: {
-        data: {
-          type_id: containTypeLinkId,
-          from_id: packageId, // before created package
-          string: { data: { value: 'Payed' } },
-        },
-      },
-    });
-
-    console.log({ payedTypeLinkId });
-
-    const {
-      data: [{ id: errorTypeLinkId }],
-    } = await deep.insert({
-      type_id: typeTypeLinkId,
-      from_id: anyTypeLinkId,
-      to_id: anyTypeLinkId,
-      in: {
-        data: {
-          type_id: containTypeLinkId,
-          from_id: packageId, // before created package
-          string: { data: { value: 'Error' } },
-        },
-      },
-    });
-
-    console.log({ errorTypeLinkId });
+    ])
 
     const {
       data: [{ id: paymentTreeId }],
@@ -432,70 +516,9 @@ const installPackage = async () => {
       },
     });
 
-    const {
-      data: [{ id: storageBusinessTypeLinkId }],
-    } = await deep.insert({
-      type_id: typeTypeLinkId,
-      from_id: anyTypeLinkId,
-      to_id: anyTypeLinkId,
-      in: {
-        data: {
-          type_id: containTypeLinkId,
-          from_id: packageId, // before created package
-          string: { data: { value: 'StorageBusiness' } },
-        },
-      },
-    });
-    console.log({storageBusinessTypeLinkId});
-
-    const {
-      data: [{ id: tokenTypeLinkId }],
-    } = await deep.insert({
-      type_id: typeTypeLinkId,
-      from_id: anyTypeLinkId,
-      to_id: anyTypeLinkId,
-      in: {
-        data: {
-          type_id: containTypeLinkId,
-          from_id: packageId, // before created package
-          string: { data: { value: 'Token' } },
-        },
-      },
-    });
-    console.log({tokenTypeLinkId});
-
-    const {
-      data: [{ id: usesTokenTypeLinkId }],
-    } = await deep.insert({
-      type_id: typeTypeLinkId,
-      from_id: anyTypeLinkId,
-      to_id: anyTypeLinkId,
-      in: {
-        data: {
-          type_id: containTypeLinkId,
-          from_id: packageId, // before created package
-          string: { data: { value: 'UsesToken' } },
-        },
-      },
-    });
-    console.log({usesTokenTypeLinkId});
 
 
-    const {
-      data: [{ id: storageClientTypeLinkId }],
-    } = await deep.insert({
-      type_id: typeTypeLinkId,
-      from_id: anyTypeLinkId,
-      to_id: anyTypeLinkId,
-      in: {
-        data: {
-          type_id: containTypeLinkId,
-          from_id: packageId, // before created package
-          string: { data: { value: 'StorageClient' } },
-        },
-      },
-    });
-    console.log({storageClientTypeLinkId});
+
 
     const {
       data: [{ id: titleTypeLinkId }],
